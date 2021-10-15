@@ -1,4 +1,4 @@
-package algorithms.empirical.analysis.second;
+package algorithms.task1.second;
 
 import java.math.BigInteger;
 import java.util.Arrays;

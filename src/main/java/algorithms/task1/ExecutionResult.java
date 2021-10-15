@@ -1,4 +1,4 @@
-package algorithms.empirical.analysis;
+package algorithms.task1;
 
 public class ExecutionResult {
     private final int sizeOfArray;

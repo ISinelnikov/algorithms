@@ -1,13 +1,13 @@
-package algorithms.empirical.analysis;
+package algorithms.task1;
 
-import algorithms.empirical.analysis.fist.BubbleSortOfElements;
-import algorithms.empirical.analysis.fist.ConstantFunctionOfElements;
-import algorithms.empirical.analysis.fist.MultiplicationOfElements;
-import algorithms.empirical.analysis.fist.PolynomialValueOfElements;
-import algorithms.empirical.analysis.fist.QuickSortOfElements;
-import algorithms.empirical.analysis.fist.SumOfElements;
-import algorithms.empirical.analysis.fist.TimsortOfElements;
-import algorithms.empirical.analysis.second.MultiplicationOfMatrix;
+import algorithms.task1.fist.BubbleSortOfElements;
+import algorithms.task1.fist.ConstantFunctionOfElements;
+import algorithms.task1.fist.MultiplicationOfElements;
+import algorithms.task1.fist.PolynomialValueOfElements;
+import algorithms.task1.fist.QuickSortOfElements;
+import algorithms.task1.fist.SumOfElements;
+import algorithms.task1.fist.TimsortOfElements;
+import algorithms.task1.second.MultiplicationOfMatrix;
 import algorithms.utils.ElementUtils;
 import algorithms.utils.MatrixUtils;
 
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmpiricalAnalysisTest {
+public class Test {
     private static final int MIN_SIZE = 1;
     private static final int MAX_SIZE = 2000;
     private static final int MAX_MATRIX_SIZE = 200;

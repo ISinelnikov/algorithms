@@ -1,4 +1,4 @@
-package algorithms.empirical.analysis.fist;
+package algorithms.task1.fist;
 
 import java.util.Arrays;
 
