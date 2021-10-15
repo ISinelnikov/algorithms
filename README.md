@@ -12,12 +12,12 @@ Link: https://github.com/ISinelnikov/algorithms/tree/master/src/algorithms/empir
 
 # Experimental time complexity analysis result
 
-https://github.com/ISinelnikov/algorithms/tree/master/result
+Link: https://github.com/ISinelnikov/algorithms/tree/master/result/task1
 
 File: `time-complexity.xlsx` contains pages with avg values for each of algorithms.
 
 # Algorithms for unconstrained nonlinear optimization. Direct methods.
 
-Link: 
+Link: https://github.com/ISinelnikov/algorithms/tree/master/result/task2
 
 File: `time-complexity.xlsx` contains pages all calculations for each of algorithms.
