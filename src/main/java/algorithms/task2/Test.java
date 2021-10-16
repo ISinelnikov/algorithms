@@ -93,9 +93,25 @@ public class Test {
 
     private static void goldenSectionResults() {
         List<GoldenSectionResult> firstFunctionResults = GoldenSectionMethod.processFunction(Test::firstFunction, 0., 1., EPS);
-        firstFunctionResults.forEach(System.out::println);
-        //GoldenSectionMethod.processFunction(Test::secondFunction, 0., 1., EPS);
-        //GoldenSectionMethod.processFunction(Test::thirdFunction, 0.01, .1, EPS);
+        GoldenSectionResult firstGoldenSectionResult = firstFunctionResults.get(firstFunctionResults.size() - 1);
+        System.out.println("First function result: "
+                + "f(x): " + BigDecimal.valueOf(firstFunction(firstGoldenSectionResult.getX())).toPlainString()
+                + ", x: " + BigDecimal.valueOf(firstGoldenSectionResult.getX()).toPlainString()
+        );
+
+        List<GoldenSectionResult> secondFunctionResult = GoldenSectionMethod.processFunction(Test::secondFunction, 0., 1., EPS);
+        GoldenSectionResult secondGoldenSectionResult = secondFunctionResult.get(secondFunctionResult.size() - 1);
+        System.out.println("Second function result: "
+                + "f(x): " + BigDecimal.valueOf(secondFunction(secondGoldenSectionResult.getX())).toPlainString()
+                + ", x: " + BigDecimal.valueOf(secondGoldenSectionResult.getX()).toPlainString()
+        );
+
+        List<GoldenSectionResult> thirdFunctionResult = GoldenSectionMethod.processFunction(Test::thirdFunction, 0.01, .1, EPS);
+        GoldenSectionResult thirdGoldenSectionResult = thirdFunctionResult.get(thirdFunctionResult.size() - 1);
+        System.out.println("Third function result: "
+                + "f(x): " + BigDecimal.valueOf(thirdFunction(thirdGoldenSectionResult.getX())).toPlainString()
+                + ", x: " + BigDecimal.valueOf(thirdGoldenSectionResult.getX()).toPlainString()
+        );
     }
 
     private static void generateFileExhaustiveSearchResults(String fileName, List<ExhaustiveResult> results) throws IOException {

@@ -41,6 +41,10 @@ public class GoldenSectionResult {
         return f2;
     }
 
+    public double getX() {
+        return (beginInterval + endInterval) / 2;
+    }
+
     @Override
     public String toString() {
         return "{" +

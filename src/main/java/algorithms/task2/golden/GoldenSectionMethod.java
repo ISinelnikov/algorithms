@@ -8,30 +8,23 @@ import java.util.List;
 public class GoldenSectionMethod {
     private static final double MULTIPLIER = (1 + Math.sqrt(5)) / 2;
 
-    public static List<GoldenSectionResult> processFunction(Function function, double a, double b, double eps) {
+    public static List<GoldenSectionResult> processFunction(Function function, double beginInterval, double endInterval, double eps) {
         List<GoldenSectionResult> result = new ArrayList<>();
 
         double x1, x2;
-        while (true) {
-            x1 = b - (b - a) / MULTIPLIER;
-            x2 = a + (b - a) / MULTIPLIER;
+        do {
+            x1 = endInterval - (endInterval - beginInterval) / MULTIPLIER;
+            x2 = beginInterval + (endInterval - beginInterval) / MULTIPLIER;
             if (function.calculate(x1) >= function.calculate(x2)) {
-                a = x1;
+                beginInterval = x1;
             } else {
-                b = x2;
+                endInterval = x2;
             }
 
-            result.add(GoldenSectionResult.of(a, b, x1, x2, function.calculate(x1), function.calculate(x2)));
+            result.add(GoldenSectionResult.of(beginInterval, endInterval, x1, x2, function.calculate(x1), function.calculate(x2)));
 
-            if (Math.abs(b - a) < eps) {
-                break;
-            }
-        }
+        } while (!(Math.abs(endInterval - beginInterval) < eps));
 
         return result;
-    }
-
-    private static double difference(double beginInterval, double endInterval) {
-        return Math.abs(endInterval - beginInterval);
     }
 }
