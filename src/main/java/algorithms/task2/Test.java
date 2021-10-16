@@ -4,6 +4,8 @@ import algorithms.task2.dichotomy.DichotomyMethod;
 import algorithms.task2.dichotomy.DichotomyResult;
 import algorithms.task2.exhaustive.ExhaustiveResult;
 import algorithms.task2.exhaustive.ExhaustiveSearchMethod;
+import algorithms.task2.golden.GoldenSectionMethod;
+import algorithms.task2.golden.GoldenSectionResult;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -29,7 +31,8 @@ public class Test {
 
     public static void main(String[] args) throws IOException {
         //exhaustiveSearchResults();
-        dichotomyResults();
+        //dichotomyResults();
+        goldenSectionResults();
     }
 
     private static void exhaustiveSearchResults() throws IOException {
@@ -89,9 +92,10 @@ public class Test {
     }
 
     private static void goldenSectionResults() {
-        GoldenSectionMethod.processFunction(Test::firstFunction, 0., 1., EPS);
-        GoldenSectionMethod.processFunction(Test::secondFunction, 0., 1., EPS);
-        GoldenSectionMethod.processFunction(Test::thirdFunction, 0.01, .1, EPS);
+        List<GoldenSectionResult> firstFunctionResults = GoldenSectionMethod.processFunction(Test::firstFunction, 0., 1., EPS);
+        firstFunctionResults.forEach(System.out::println);
+        //GoldenSectionMethod.processFunction(Test::secondFunction, 0., 1., EPS);
+        //GoldenSectionMethod.processFunction(Test::thirdFunction, 0.01, .1, EPS);
     }
 
     private static void generateFileExhaustiveSearchResults(String fileName, List<ExhaustiveResult> results) throws IOException {
