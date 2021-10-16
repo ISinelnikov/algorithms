@@ -91,13 +91,15 @@ public class Test {
         generateFileDichotomyResults("dichotomy-third-function-result.csv", thirdFunctionResult);
     }
 
-    private static void goldenSectionResults() {
+    private static void goldenSectionResults() throws IOException {
         List<GoldenSectionResult> firstFunctionResults = GoldenSectionMethod.processFunction(Test::firstFunction, 0., 1., EPS);
         GoldenSectionResult firstGoldenSectionResult = firstFunctionResults.get(firstFunctionResults.size() - 1);
         System.out.println("First function result: "
                 + "f(x): " + BigDecimal.valueOf(firstFunction(firstGoldenSectionResult.getX())).toPlainString()
                 + ", x: " + BigDecimal.valueOf(firstGoldenSectionResult.getX()).toPlainString()
         );
+
+        generateFileGoldenSectionResults("golden-section-first-function-result.csv", firstFunctionResults);
 
         List<GoldenSectionResult> secondFunctionResult = GoldenSectionMethod.processFunction(Test::secondFunction, 0., 1., EPS);
         GoldenSectionResult secondGoldenSectionResult = secondFunctionResult.get(secondFunctionResult.size() - 1);
@@ -106,12 +108,16 @@ public class Test {
                 + ", x: " + BigDecimal.valueOf(secondGoldenSectionResult.getX()).toPlainString()
         );
 
+        generateFileGoldenSectionResults("golden-section-second-function-result.csv", secondFunctionResult);
+
         List<GoldenSectionResult> thirdFunctionResult = GoldenSectionMethod.processFunction(Test::thirdFunction, 0.01, .1, EPS);
         GoldenSectionResult thirdGoldenSectionResult = thirdFunctionResult.get(thirdFunctionResult.size() - 1);
         System.out.println("Third function result: "
                 + "f(x): " + BigDecimal.valueOf(thirdFunction(thirdGoldenSectionResult.getX())).toPlainString()
                 + ", x: " + BigDecimal.valueOf(thirdGoldenSectionResult.getX()).toPlainString()
         );
+
+        generateFileGoldenSectionResults("golden-section-third-function-result.csv", thirdFunctionResult);
     }
 
     private static void generateFileExhaustiveSearchResults(String fileName, List<ExhaustiveResult> results) throws IOException {
@@ -145,6 +151,26 @@ public class Test {
                     BigDecimal.valueOf(dichotomyResult.getX2()).toPlainString(),
                     BigDecimal.valueOf(dichotomyResult.getF1()).toPlainString(),
                     BigDecimal.valueOf(dichotomyResult.getF2()).toPlainString()
+            ));
+        }
+        writer.close();
+    }
+
+    private static void generateFileGoldenSectionResults(String fileName, List<GoldenSectionResult> results) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+        String title = "<ITERATION>, <INVOKE>, <BEGIN_INTERVAL>, <END_INTERVAL>, <DIFFERENCE>, <X1>, <X2>, <F1>, <F2>\n";
+        writer.write(title);
+
+        for (GoldenSectionResult goldenSectionResult : results) {
+            writer.write(String.format("%d, %d, %s, %s, %s, %s, %s, %s\n",
+                    goldenSectionResult.getIteration(),
+                    goldenSectionResult.getInvoke(),
+                    BigDecimal.valueOf(goldenSectionResult.getBeginInterval()).toPlainString(),
+                    BigDecimal.valueOf(goldenSectionResult.getEndInterval()).toPlainString(),
+                    BigDecimal.valueOf(goldenSectionResult.getX1()).toPlainString(),
+                    BigDecimal.valueOf(goldenSectionResult.getX2()).toPlainString(),
+                    BigDecimal.valueOf(goldenSectionResult.getF1()).toPlainString(),
+                    BigDecimal.valueOf(goldenSectionResult.getF2()).toPlainString()
             ));
         }
         writer.close();
