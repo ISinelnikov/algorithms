@@ -10,7 +10,11 @@ Packages:
 
 ## Task 2. Algorithms for unconstrained nonlinear optimization. Direct methods.
 
-Link: https://github.com/ISinelnikov/algorithms/tree/master/src/main/java/algorithms/task1
+Link: https://github.com/ISinelnikov/algorithms/tree/master/src/main/java/algorithms/task2
+
+## Task 5. Algorithms on graphs. Introduction to graphs and basic algorithms on graphs.
+
+Link: https://github.com/ISinelnikov/algorithms/tree/master/src/main/java/algorithms/task5
 
 # Results
 
@@ -23,3 +27,7 @@ File: `time-complexity.xlsx` contains pages with avg values for each of algorith
 ## Task 2. Algorithms for unconstrained nonlinear optimization. Direct methods.
 
 Link: https://github.com/ISinelnikov/algorithms/tree/master/result/task2
+
+## Task 5. Algorithms on graphs. Introduction to graphs and basic algorithms on graphs.
+
+Link: https://github.com/ISinelnikov/algorithms/tree/master/result/task5
